@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">EcommerceAssesment</string>
+    <string name="home">Home</string>
+    <string name="cart">Cart</string>
+    <string name="logout">Logout</string>
+    <string name="orders">Orders</string>
+    <string name="profile">Profile</string>
 </resources>

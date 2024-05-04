@@ -16,6 +16,9 @@ class LoginActivity : AppCompatActivity() {
             tvDontHaveAccount.setOnClickListener {
                 startActivity(Intent(this@LoginActivity,RegistrationActivity::class.java))
             }
+            btnLogin.setOnClickListener {
+                startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
+            }
         }
     }
 }
