@@ -54,7 +54,10 @@ class HomeActivity : AppCompatActivity() {
                     finish()
                 }
 
-                R.id.cart -> showToast(getString(R.string.cart))
+                R.id.cart ->{
+                    startActivity(Intent(this, CartActivity::class.java))
+                    finish()
+                }
                 R.id.orders -> showToast(getString(R.string.orders))
                 R.id.profile -> showToast(getString(R.string.profile))
                 R.id.logout -> showToast(getString(R.string.logout))

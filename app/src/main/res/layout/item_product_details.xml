@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="5dp"
-    app:cardCornerRadius="@dimen/cardview_default_radius"
-    android:layout_marginTop="15dp"
-    app:cardBackgroundColor="#ffffff">
+    android:layout_height="match_parent"
+    android:layout_margin="10dp">
+
 
     <RelativeLayout
-        android:id="@+id/ll_design"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/iv_image"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/phone_img" />
 
         <TextView
             android:id="@+id/title"
@@ -28,7 +17,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/iv_image"
             android:text="RealMe Narzo 50"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -40,8 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="10dp"
-            android:isIndicator="false"
+            android:focusable="true"
+            android:isIndicator="true"
             android:numStars="5" />
+
 
         <TextView
             android:id="@+id/tv_description"
@@ -50,35 +40,241 @@
             android:layout_below="@+id/title"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/iv_image"
             android:text="RealMe Narzo 50(Midlight Black Ram Internal Memory ) Midlight Black Ram Internal Memory "
             android:textSize="14sp" />
 
+
+        <ImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@+id/tv_description"
+            android:padding="5dp"
+            android:src="@drawable/phone_img" />
+
         <TextView
-            android:id="@+id/tvprice"
+            android:id="@+id/tvPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_description"
+            android:layout_below="@+id/iv_image"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@+id/iv_image"
             android:text="$ 220"
             android:textSize="16sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_below="@+id/iv_image"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/minus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <ImageView
+                android:src="@drawable/plus"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+
+
+        </LinearLayout>
+
+
         <TextView
-            android:id="@+id/tvAddtoCart"
+            android:id="@+id/tvSpecifications"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_description"
-            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/tvPrice"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:text="ADD TO CART"
-            android:textSize="14sp"
+            android:text="@string/specifications"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cdSpecifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSpecifications"
+
+            android:layout_marginTop="15dp"
+            app:cardBackgroundColor="#ffffff"
+            app:cardCornerRadius="@dimen/cardview_default_radius">
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="16dp"
+                android:shrinkColumns="*"
+                android:stretchColumns="*">
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Model Name" />
+
+                    <TextView
+                        android:id="@+id/textView1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Real Me Norzo 50" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/colour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Colour" />
+
+                    <TextView
+                        android:id="@+id/tvColour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="See Blue" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/ram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RAM" />
+
+                    <TextView
+                        android:id="@+id/tvRam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4GB" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Internal Storage" />
+
+                    <TextView
+                        android:id="@+id/tvInternalStorage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="64GB + 256GB  Expandable" />
+
+                </TableRow>
+
+
+            </TableLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <TextView
+            android:id="@+id/tvUserReviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cdSpecifications"
+            android:layout_marginTop="10dp"
+            android:text="@string/user_reviews"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cdUserReviws"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvUserReviews"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            app:cardBackgroundColor="#ffffff"
+            app:cardCornerRadius="@dimen/cardview_default_radius">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:text="John Parker"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RatingBar
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:isIndicator="false"
+                    android:numStars="5" />
+
+                <TextView
+                    android:id="@+id/tvHeadLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvName"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Quality Phone in Low Budget"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/tv_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvHeadLine"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Quality Phone in Low Budget. Stunning Phone Good Battery Quality must Buy Phone in recent times "
+                    android:textSize="14sp" />
+
+
+            </RelativeLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
     </RelativeLayout>
-</com.google.android.material.card.MaterialCardView>
+</LinearLayout>
+

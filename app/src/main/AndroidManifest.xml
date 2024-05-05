@@ -13,7 +13,13 @@
         android:theme="@style/Theme.EcommerceAssesment"
         tools:targetApi="31">
         <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".ProductDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProductListActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"
