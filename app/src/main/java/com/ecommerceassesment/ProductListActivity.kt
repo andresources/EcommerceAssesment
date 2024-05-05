@@ -42,7 +42,7 @@ class ProductListActivity : AppCompatActivity() {
         productListPojo.add(
             ProductListPojo(
                 "Real Me Narzo 50",
-                "This is Smart Phone",
+                "RealMe Narzo 50(Midlight Black Ram Internal Memory ) Midlight Black Ram Internal Memory",
                 "200",
                 "2"
             )
@@ -50,7 +50,7 @@ class ProductListActivity : AppCompatActivity() {
         productListPojo.add(
             ProductListPojo(
                 "One Plus 12R",
-                "This is Smart Phone",
+                "One Plus 12R 50(Midlight Black Ram Internal Memory ) Midlight Black Ram Internal Memory",
                 "200",
                 "2"
             )
@@ -58,12 +58,12 @@ class ProductListActivity : AppCompatActivity() {
         productListPojo.add(
             ProductListPojo(
                 "Samsung Note 24",
-                "This is Smart Phone",
+                "Samsung Note 24 50(Midlight Black Ram Internal Memory ) Midlight Black Ram Internal Memory",
                 "200",
                 "2"
             )
         )
-        productListPojo.add(ProductListPojo("Oppo", "This is Smart Phone", "200", "2"))
+        productListPojo.add(ProductListPojo("Oppo", "Oppo 50(Midlight Black Ram Internal Memory ) Midlight Black Ram Internal Memory", "200", "2"))
 
 
         return productListPojo

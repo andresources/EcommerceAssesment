@@ -26,11 +26,32 @@ class CartAdapter(private val productDBPojo: ArrayList<ProductDBPojo>) :
 
     class ProductViewHolder(private val localBinding: ItemCartBinding) :
         RecyclerView.ViewHolder(localBinding.root) {
-
+        private lateinit var databaseHelper: DataBaseHelper
         fun bindData(productListPojo: ProductDBPojo, position: Int) {
             with(localBinding) {
-                localBinding.title.text = productListPojo.name
+                title.text = productListPojo.name
+                description.text= productListPojo.des
+                tvUnit.text= "Unit Price:$ ${productListPojo.pcost}"
 
+                var count = productListPojo.pcount
+                tvCount.text= count.toString()
+                pcost.text ="$ ${count*productListPojo.pcost}"
+                imgPlus.setOnClickListener {
+                    count++
+                    tvCount.text = "$count"
+                    pcost.text ="$ ${count*productListPojo.pcost}"
+                    databaseHelper = DataBaseHelper(it.context)
+                    databaseHelper.update(productListPojo.name,count)
+                }
+                imgMinus.setOnClickListener {
+                    if(count>0){
+                        count--
+                        pcost.text ="$ ${count*productListPojo.pcost}"
+                        tvCount.text = "$count"
+                        databaseHelper = DataBaseHelper(it.context)
+                        databaseHelper.update(productListPojo.name,count)
+                    }
+                }
             }
         }
     }

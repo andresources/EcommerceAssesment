@@ -28,7 +28,7 @@ class ProductDetailsAdapter(private val productDetailsPojo: ArrayList<ProductDet
         holder.bindData(productDetailsPojo[position], position)
         holder.itemView.setOnClickListener {
             databaseHelper = DataBaseHelper(it.context)
-            databaseHelper.insertData(productDetailsPojo[position].name)
+            //databaseHelper.insertData(productDetailsPojo[position].name)
             Toast.makeText(it.context,"${productDetailsPojo[position].name} Product added successfully to the cart",Toast.LENGTH_SHORT).show()
         }
     }

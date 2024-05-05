@@ -30,7 +30,7 @@ class CartActivity : AppCompatActivity() {
     fun dataDbProducts() : ArrayList<ProductDBPojo>{
         productDBPojo = ArrayList<ProductDBPojo>()
         databaseHelper.readData().forEach(){
-            productDBPojo.add(ProductDBPojo(0,it.name))
+            productDBPojo.add(ProductDBPojo(0,it.name,it.des,it.pcount,it.pcost))
         }
 
         return productDBPojo

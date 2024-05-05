@@ -8,5 +8,6 @@ object DataBaseConstants {
     const val COLUMN_ID = "id"
     const val PRODUCT_NAME = "product_name"
     const val PRODUCT_DESCRIPTION = "product_description"
-
+    const val PRODUCT_PRICE = "product_price"
+    const val PRODUCT_COUNT = "product_count"
 }

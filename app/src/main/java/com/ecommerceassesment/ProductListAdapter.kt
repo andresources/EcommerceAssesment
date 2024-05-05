@@ -22,7 +22,7 @@ class ProductListAdapter(private val productListPojo: ArrayList<ProductListPojo>
         return ProductViewHolder(binding)
     }
 
-    private lateinit var databaseHelper: DataBaseHelper
+
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val data = productListPojo[position]
         holder.bindData(productListPojo[position], position)
@@ -30,38 +30,41 @@ class ProductListAdapter(private val productListPojo: ArrayList<ProductListPojo>
         holder.itemView.setOnClickListener {
 
             val context = holder.itemView.context
-            val intent = Intent(context, ProductDetailsActivity::class.java)
+            val intent = Intent(context, ProductDetailsActivity::class.java).apply {
+                putExtra("pname",data.name)
+                putExtra("pdes",data.description)
+            }
             context.startActivity(intent)
-
-            databaseHelper = DataBaseHelper(it.context)
-            databaseHelper.insertData(productListPojo[position].name)
-            Toast.makeText(
-                it.context,
-                "${productListPojo[position].name} Product added successfully to the cart",
-                Toast.LENGTH_SHORT
-            ).show()
         }
     }
 
     class ProductViewHolder(private val localBinding: ItemProductListBinding) :
         RecyclerView.ViewHolder(localBinding.root) {
-
+        private lateinit var databaseHelper: DataBaseHelper
         fun bindData(productListPojo: ProductListPojo, position: Int) {
             with(localBinding) {
                 var count = 1
                 title.text = productListPojo.name
+                tvProductDescription.text = productListPojo.description
                 tvAddtoCart.setOnClickListener {
+                    databaseHelper = DataBaseHelper(it.context)
+                    databaseHelper.delete(productListPojo.name)
+                    databaseHelper.insertData(productListPojo.name,productListPojo.description,1,productListPojo.price.toInt())
                     llCart.visibility = View.VISIBLE
                     tvAddtoCart.visibility = View.GONE
                 }
                 imgPlus.setOnClickListener {
                     count++
                     tvCount.text = "$count"
+                    databaseHelper = DataBaseHelper(it.context)
+                    databaseHelper.update(productListPojo.name,count)
                 }
                 imgMinus.setOnClickListener {
                     if(count>0){
                         count--
                         tvCount.text = "$count"
+                        databaseHelper = DataBaseHelper(it.context)
+                        databaseHelper.update(productListPojo.name,count)
                     }
                 }
             }

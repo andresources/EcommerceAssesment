@@ -44,7 +44,7 @@
             android:numStars="5" />
 
         <TextView
-            android:id="@+id/tv_description"
+            android:id="@+id/tvProductDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"

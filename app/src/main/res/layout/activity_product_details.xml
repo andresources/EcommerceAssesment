@@ -59,12 +59,24 @@
             android:text="$ 220"
             android:textSize="16sp"
             android:textStyle="bold" />
-
-        <LinearLayout
-            android:id="@+id/llCart"
+        <TextView
+            android:id="@+id/tvAddtoCart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/iv_image"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:text="ADD TO CART"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:id="@+id/llCart"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAddtoCart"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="10dp"
             android:orientation="horizontal">
