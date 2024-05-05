@@ -19,8 +19,9 @@ class CartActivity : AppCompatActivity() {
 
         initDataBase()
         binding.rvLIstOfItems.layoutManager = LinearLayoutManager(this)
-        binding.rvLIstOfItems.adapter = CartAdapter(dataDbProducts())
-
+        binding.rvLIstOfItems.adapter = CartAdapter(dataDbProducts()){
+            dataDbProducts()
+        }
     }
 
     private fun initDataBase() {
@@ -29,10 +30,12 @@ class CartActivity : AppCompatActivity() {
 
     fun dataDbProducts() : ArrayList<ProductDBPojo>{
         productDBPojo = ArrayList<ProductDBPojo>()
+        var total = 0
         databaseHelper.readData().forEach(){
             productDBPojo.add(ProductDBPojo(0,it.name,it.des,it.pcount,it.pcost))
+            total = total + (it.pcount * it.pcost)
         }
-
+        binding.tvTotalBill.text = "Total Bill Amount: $ ${total}"
         return productDBPojo
     }
 }

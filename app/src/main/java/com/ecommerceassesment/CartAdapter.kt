@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ecommerceassesment.databinding.ItemCartBinding
 
-class CartAdapter(private val productDBPojo: ArrayList<ProductDBPojo>) :
+class CartAdapter(private val productDBPojo: ArrayList<ProductDBPojo>,private val onClicked: ()-> Unit) :
     RecyclerView.Adapter<CartAdapter.ProductViewHolder>() {
     private lateinit var binding: ItemCartBinding
 
@@ -21,13 +21,13 @@ class CartAdapter(private val productDBPojo: ArrayList<ProductDBPojo>) :
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val data = productDBPojo[position]
-        holder.bindData(productDBPojo[position], position)
+        holder.bindData(productDBPojo[position], position,onClicked)
     }
 
     class ProductViewHolder(private val localBinding: ItemCartBinding) :
         RecyclerView.ViewHolder(localBinding.root) {
         private lateinit var databaseHelper: DataBaseHelper
-        fun bindData(productListPojo: ProductDBPojo, position: Int) {
+        fun bindData(productListPojo: ProductDBPojo, position: Int,onClicked: ()-> Unit) {
             with(localBinding) {
                 title.text = productListPojo.name
                 description.text= productListPojo.des
@@ -42,6 +42,7 @@ class CartAdapter(private val productDBPojo: ArrayList<ProductDBPojo>) :
                     pcost.text ="$ ${count*productListPojo.pcost}"
                     databaseHelper = DataBaseHelper(it.context)
                     databaseHelper.update(productListPojo.name,count)
+                    onClicked.invoke()
                 }
                 imgMinus.setOnClickListener {
                     if(count>0){
@@ -50,6 +51,7 @@ class CartAdapter(private val productDBPojo: ArrayList<ProductDBPojo>) :
                         tvCount.text = "$count"
                         databaseHelper = DataBaseHelper(it.context)
                         databaseHelper.update(productListPojo.name,count)
+                        onClicked.invoke()
                     }
                 }
             }
