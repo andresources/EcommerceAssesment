@@ -63,6 +63,16 @@ class ProductListActivity : AppCompatActivity() {
                 "2"
             )
         )
+
+        /*productListPojo.add(
+            ProductListPojo(
+                "Samsung Note 24",
+                "Samsung Note 24 50(Midlight Black Ram Internal Memory ) Midlight Black Ram Internal Memory",
+                "200",
+                "2"
+            )
+        )*/
+
         productListPojo.add(ProductListPojo("Oppo", "Oppo 50(Midlight Black Ram Internal Memory ) Midlight Black Ram Internal Memory", "200", "2"))
 
 
